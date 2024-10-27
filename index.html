@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Every good thing (by Yabes)</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .video-container {
+            width: 100%;
+            max-width: 800px;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .timestamps {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .timestamp {
+            cursor: pointer;
+            color: blue;
+            text-decoration: underline;
+            margin-right: 10px;
+        }
+        .download-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .download-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Every good thing</h1>
+    <div class="video-container">
+        <video id="videoPlayer" controls>
+            <source src="https://yabesrblxyt.github.io/random-file/Every%20good%20thing%E2%80%8E%20-%E2%80%8E%20Tarian%20natal.mp4" type="video/mp4">
+            Browser mu error, coba update atau gunakan chrome.
+        </video>
+    </div>
+
+    <div class="timestamps">
+        <p>Jump to:</p>
+        <div id="timestampContainer"></div>
+    </div>
+
+    <button class="download-button" onclick="downloadVideo()">Download Video</button>
+
+    <script>
+        // Timestamp dalam detik dan milidetik (opsional), contoh: 3.152 untuk 3 detik 152 milidetik
+        const timestamps = [
+            { time: 3.4, name: "Intro" },
+            { time: 19.960, name: "Part 1" },
+            { time: 35.800, name: "Part 2" },
+            { time: 51.200, name: "Part 3" },
+            { time: 82.883, name: "Part 1" },
+            { time: 98.100, name: "Part 2" },
+            { time: 114.100, name: "Part 1" },
+            { time: 129.600, name: "Part 2" },
+            { time: 145.100, name: "Part 2" }
+        ]; 
+
+        // Menampilkan timestamps di halaman
+        const timestampContainer = document.getElementById("timestampContainer");
+        timestamps.forEach(item => {
+            const span = document.createElement("span");
+            span.className = "timestamp";
+            span.innerText = `${formatDisplayTime(item.time)} - ${item.name}`; // Menampilkan waktu dan nama
+            span.onclick = () => jumpToTime(item.time); // Melompat ke waktu dengan milidetik
+            timestampContainer.appendChild(span);
+        });
+
+        // Fungsi untuk melompat ke waktu tertentu
+        function jumpToTime(time) {
+            const video = document.getElementById("videoPlayer");
+            video.currentTime = time;
+            video.play();
+        }
+
+        // Fungsi untuk memformat tampilan waktu (menit:detik tanpa milidetik)
+        function formatDisplayTime(time) {
+            const seconds = Math.floor(time); // Hanya detik
+            const minutes = Math.floor(seconds / 60);
+            const secs = seconds % 60;
+            return `${minutes}:${secs.toString().padStart(2, '0')}`;
+        }
+
+        // Fungsi untuk mengunduh video
+        function downloadVideo() {
+            const link = document.createElement('a');
+            link.href = 'https://raw.githubusercontent.com/YabesRBLXYT/random-file/refs/heads/main/Every%20good%20thing%E2%80%8E%20-%E2%80%8E%20Tarian%20natal.mp4';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+    </script>
+
+</body>
+</html>
