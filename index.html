@@ -87,7 +87,7 @@
         timestamps.forEach(item => {
             const span = document.createElement("span");
             span.className = "timestamp";
-            span.innerText = `${formatDisplayTime(item.time)} - ${item.name}`; // Menampilkan waktu dan nama
+            span.innerText = `${item.name}`; // Menampilkan waktu dan nama
             span.onclick = () => jumpToTime(item.time); // Melompat ke waktu dengan milidetik
             timestampContainer.appendChild(span);
         });
@@ -98,15 +98,7 @@
             video.currentTime = time;
             video.play();
         }
-
-        // Fungsi untuk memformat tampilan waktu (menit:detik tanpa milidetik)
-        function formatDisplayTime(time) {
-            const seconds = Math.floor(time); // Hanya detik
-            const minutes = Math.floor(seconds / 60);
-            const secs = seconds % 60;
-            return `${minutes}:${secs.toString().padStart(2, '0')}`;
-        }
-
+        
         // Fungsi untuk mengunduh video
         function downloadVideo() {
             const link = document.createElement('a');
