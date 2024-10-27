@@ -56,7 +56,7 @@
     <h1>Every good thing</h1>
     <div class="video-container">
         <video id="videoPlayer" controls>
-            <source src="https://yabesrblxyt.github.io/random-file/Every%20good%20thing%E2%80%8E%20-%E2%80%8E%20Tarian%20natal.mp4" type="video/mp4">
+            <source src="https://yabesrblxyt.github.io/random-file/Every%20good%20thing%20-%20Tarian%20natal%20-%20Instrumental.mp4" type="video/mp4">
             Browser mu error, coba update atau gunakan chrome.
         </video>
     </div>
@@ -67,6 +67,8 @@
     </div>
 
     <button class="download-button" onclick="downloadVideo()">Download Video</button>
+
+    <button class="download-button" onclick="downloadAudio()">Download Audio</button>
 
     <script>
         // Timestamp dalam detik dan milidetik (opsional), contoh: 3.152 untuk 3 detik 152 milidetik
@@ -102,10 +104,17 @@
         // Fungsi untuk mengunduh video
         function downloadVideo() {
             const link = document.createElement('a');
-            link.href = 'https://raw.githubusercontent.com/YabesRBLXYT/random-file/refs/heads/main/Every%20good%20thing%E2%80%8E%20-%E2%80%8E%20Tarian%20natal.mp4';
+            link.href = 'https://raw.githubusercontent.com/YabesRBLXYT/random-file/refs/heads/main/Every%20good%20thing%20-%20Tarian%20natal%20-%20Instrumental.mp4';
             document.body.appendChild(link);
             link.click();
-            document.body.removeChild(link);
+        }
+
+        // Fungsi untuk mengunduh audio
+        function downloadAudio() {
+            const link = document.createElement('b');
+            link.href = 'https://raw.githubusercontent.com/YabesRBLXYT/random-file/refs/heads/main/Every%20good%20thing%20-%20Tarian%20natal%20-%20Instrumental.mp3';
+            document.body.appendChild(link);
+            link.click();
         }
     </script>
 
